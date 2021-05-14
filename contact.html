@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styleContact.css">
+
+  <title>Contact Us</title>
+</head>
+
+<body>
+   <!--Navigation Bar-->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">SF</a>
+        <a class="navbar-brand" href="#">
+            <div class="contain">
+                <h1><b>Spark's Foundation</b></h1>
+            </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+  
+  <!--Contact Us-->
+  <section class="w3l-simple-contact-form1">
+    <div class="contact-form section-gap">
+      <div class="wrapper">
+        <div class="text-center py-1">
+          <h2 class="h2" style="font-size: 30px; color:black "><b>Contact Us</b></h2><br>
+        </div>
+        <div class="contact-form" style="max-width: 450px; margin: 0 auto;">
+          <div class="form-mid">
+            <form action="javascript:sendmail()" method="post">
+              <div class="field">
+                <input type="text" class="form-control" name="Name" id="Name" placeholder="Name" required="">
+              </div>
+              <div class="field">
+                <input type="email" class="form-control" name="Sender" id="Sender"
+                  placeholder="Email address" required="">
+              </div>
+              <div class="field">
+                <input type="text" class="form-control" name="Subject" id="Subject" placeholder=" Query Subject"
+                  required="">
+              </div>
+              <textarea name="Message" class="form-control" id="Message" placeholder="Write your query here..."
+                required=""></textarea>
+              <button type="submit" class="btn btn-contact">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+  <script>
+
+    function sendmail() {
+
+      var name = $('#Name').val();
+      var email = $('#Sender').val();
+      var subject = $('#Subject').val();
+      var message = $('#Message').val();
+
+      var Body = 'Name: ' + name + '<br>Email address: ' + email + '<br>Subject: ' + subject + '<br>Message: ' + message;
+
+      Email.send({
+        SecureToken: "fbf31702-bb7f-4a4e-9c1c-4ccf17ee777f",
+        To: 'sparkfoundation@gmail.com',
+        From: "saransh123@gmail.com",
+        Subject: "Message or Query of " + name + " for the Spark's Foundation.",
+        Body: Body
+      }).then(
+        message => {
+          if (message == 'OK') {
+            alert('Your mail has been sent. Thank you for connecting.');
+          }
+          else {
+            console.error(message);
+            alert('There is error at sending message. ')
+          }
+        }
+      );
+    }
+  </script>
+
+   <!--Footer part-->
+   <div class="container py-5 bg-light">
+    <footer class="blog-footer">
+
+        <p class="row featurette d-flex justify-content-center align-items-center">developed by Saransh Singh</p>
+        <p class="float-right"><a href="#">Back to top</a></p>
+    </footer>
+</div>
+
+  <!-- Javascript  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"></script>
+
+</body>
+</html>
